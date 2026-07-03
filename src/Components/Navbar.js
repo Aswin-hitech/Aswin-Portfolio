@@ -21,6 +21,7 @@ function Navbar() {
         <li><Link to="/" onClick={() => setOpen(false)}>Home</Link></li>
         <li><Link to="/about" onClick={() => setOpen(false)}>About</Link></li>
         <li><Link to="/projects" onClick={() => setOpen(false)}>Projects</Link></li>
+        <li><Link to="/achievements" onClick={() => setOpen(false)}>Achievements</Link></li>
         <li><Link to="/skills" onClick={() => setOpen(false)}>Skills</Link></li>
         <li><Link to="/platforms" onClick={() => setOpen(false)}>Platforms</Link></li>
         <li><Link to="/contact" onClick={() => setOpen(false)}>Contact</Link></li>

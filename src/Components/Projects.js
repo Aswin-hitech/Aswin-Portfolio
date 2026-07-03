@@ -1,11 +1,11 @@
 import { useState } from "react";
-import cartImg from "../assets/cart.png";
-import AIRAImg from "../assets/chatbot.png";
-import wasteImg from "../assets/waste.jpg";
-import canteenImg from "../assets/canteen.png";
-import budgetImg from "../assets/budget.png";
 import "./styles.css";
 
+import medicuranceImg from "../assets/medicurance.png";
+import smartStudyImg from "../assets/smartstudy.png";
+import AIRAImg from "../assets/chatbot.png";
+import cartImg from "../assets/cart.png";
+import wasteImg from "../assets/waste.jpg";
 
 function Projects() {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -14,86 +14,106 @@ function Projects() {
     setExpandedCard(expandedCard === index ? null : index);
   };
 
-const projects = [
-  {
-    title: "AIRA - Your AI Railway Assistant",
-    intro: "An ML based Real-time Railway Assistant",
-    more:  `The AIRA – AI Railway Assistant project was designed to address real-time railway-related issues through intelligent problem
-          segregation and automated response mechanisms. The system functions as an upgraded chatbot-based version of Rail Madad, capable of 
-          providing instant assistance and delivering immediate notifications to users.The project leverages Natural Language Processing techniques, 
-          specifically BERT transformer models, to perform urgency-based and medical-emergency classification of passenger complaints. 
-          By analyzing user inputs in real time, AIRA efficiently prioritizes critical cases and routes them for faster resolution. 
-          This solution aims to enhance passenger safety, improve response times, and modernize railway grievance 
-          handling through AI-driven automation and intelligent decision-making.`,
-    image: AIRAImg
-  },
-  {
-    title: "Smart Waste Segregator",
-    intro: "An IoT-based system for automatic waste segregation.",
-    more: `The project focused on developing a Smart Segregator for dry and wet waste management. Although it achieved partial success,
-          it provided valuable hands-on learning in the fundamentals of IoT, automation, and embedded systems. The primary objective was to
-        efficiently segregate dry and wet waste to promote a healthier environment and reduce the accumulation of toxic substances in
-        nature.This was a team-based project, which was successfully presented during a 36-hour hackathon. The system integrated motors, 
-        sensors, and an Arduino microcontroller to enable seamless automation. Additionally, advanced features such as an automated zipping 
-        mechanism and a rinsing mechanism were planned, with control facilitated through automation and mobile applications.
-        The project also explored the development of a machine learning model to classify waste based on weight, laying the
-         foundation for smarter and more scalable waste management solutions.`,
-    image: wasteImg
-  },
-  {
-    title: "College Canteen Management System",
-    intro: " A Simple Python Project to showcase a python based application",
-    more: `The College Canteen Management System was developed as a Python-based application to streamline and automate daily 
-    canteen operations. The system manages key functionalities such as menu display, order placement, billing, and 
-    basic inventory tracking, reducing manual effort and improving operational efficiency.The application follows a structured and 
-    modular approach, enabling smooth data handling and logical workflow management. Through this project, practical experience was
-     gained in Python programming, application logic design, and process automation, demonstrating the use of software solutions to 
-     improve service management in an academic environment.`,
-    image: canteenImg
-  },
-  {
-    title: "PULSECART",
-    intro: " A Java Based Shopping cart system",
-    more: `The Java Swing Shopping Cart System was developed as a desktop-based application to demonstrate core object-oriented 
-            programming concepts and GUI-based application development using Java Swing. The project provides essential e-commerce functionalities 
-            such as product browsing, adding and removing items from the cart, quantity management, and real-time price calculation.
-            The system emphasizes a structured and modular design, incorporating classes for products, customers, and cart management 
-            to ensure scalability and maintainability. Through this project, practical experience was gained in event handling, user interface design,
-            and data manipulation, reinforcing a strong foundation in Java-based application development and desktop software engineering.`,
-    image: cartImg
-  },
-  {
-    title: "AI BASED BUDGET CALCULATOR",
-    intro: " A Simple Python Application to calculate Trips Budget ",
-    more: `The AI Budget Calculator was developed as an intelligent decision-support system focused on trip planning and cost optimization.
-     The application utilizes geospatial analysis through the Geopy module to calculate distances between locations and estimate 
-     travel-related expenses accurately.By integrating intelligent decision-making algorithms, the system analyzes multiple factors 
-     such as distance, travel mode, accommodation preferences, and budget constraints to provide optimized and personalized trip cost
-      estimations. This project demonstrates the practical application of geospatial computing and AI-driven reasoning to support smarter
-       financial planning and enhance user decision-making in travel scenarios.`,
-    image: budgetImg
-  }
-];
+  const projects = [
+    {
+      title: "Medicurance – AI Powered Medical Claim Validation System",
+      intro:
+        "An intelligent healthcare claim validation platform powered by RAG, LLMs, OCR, and fraud detection.",
+      more: `Medicurance is an AI-powered healthcare claim validation platform developed to automate the medical reimbursement process for pensioners. The application combines Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), OCR, and intelligent document analysis to verify submitted claims with greater accuracy and efficiency.
+
+The system extracts information from medical bills, prescriptions, laboratory reports, and discharge summaries using OCR and image preprocessing techniques. The extracted data is validated against government healthcare scheme guidelines using a RAG pipeline, enabling AI-assisted decision making with explainable outputs.
+
+Additional features include duplicate claim detection, fraud analysis, confidence scoring, AI-generated validation reports, and officer review support. Built using Flask, MongoDB, PostgreSQL, Supabase Storage, and modern AI technologies, Medicurance demonstrates the practical application of Generative AI in healthcare automation while significantly reducing manual verification efforts.`,
+      image: medicuranceImg,
+      github: "https://github.com/Aswin-hitech/Medicurance",
+    },
+
+    {
+      title: "SmartStudy – AI Exam Preparation Assistant",
+      intro:
+        "An AI-powered learning assistant that personalizes exam preparation using OCR and Large Language Models.",
+      more: `SmartStudy is an intelligent academic assistant designed to improve students' learning experience through personalized study recommendations and AI-assisted guidance. The platform analyzes study materials, evaluates preparation levels, and generates customized learning plans based on individual performance.
+
+The application utilizes OCR to extract information from handwritten notes, textbooks, and question papers, while Large Language Models provide topic explanations, summaries, revision strategies, and doubt clarification. Students receive adaptive recommendations to improve weak areas and monitor their academic progress.
+
+By integrating Artificial Intelligence, Machine Learning, and educational analytics, SmartStudy aims to make exam preparation more efficient, interactive, and data-driven while encouraging consistent learning habits.`,
+      image: smartStudyImg,
+      github: "https://github.com/Aswin-hitech/SmartStudy-Assist",
+    },
+
+    {
+      title: "AIRA – AI Railway Assistant",
+      intro:
+        "An AI-powered railway complaint management system with NLP-based issue classification and urgency detection.",
+      more: `AIRA (AI Railway Assistant) was developed as an intelligent enhancement to the existing Rail Madad complaint system. It enables passengers to submit complaints naturally while automatically classifying issues and prioritizing emergency situations using Natural Language Processing.
+
+The project leverages BERT transformer models to perform urgency detection, medical emergency identification, and complaint categorization. By intelligently routing complaints to the appropriate departments, AIRA helps improve response time, passenger safety, and service efficiency.
+
+The system demonstrates the practical application of Machine Learning and NLP in public transportation by automating complaint analysis and supporting faster decision-making.`,
+      image: AIRAImg,
+      github: "",
+    },
+
+    {
+      title: "PulseCart – Java Shopping Cart System",
+      intro:
+        "A desktop-based e-commerce application built using Java Swing and Object-Oriented Programming.",
+      more: `PulseCart is a Java Swing-based shopping cart application developed to demonstrate Object-Oriented Programming concepts and GUI application development. The system provides essential e-commerce functionalities such as product browsing, cart management, quantity updates, billing, and real-time price calculation.
+
+The project follows a modular architecture with separate classes for products, customers, orders, and cart management, ensuring scalability and maintainability. It strengthened my understanding of Java, event handling, user interface development, and software design principles.`,
+      image: cartImg,
+      github: "https://github.com/Aswin-hitech/PULSECART",
+    },
+    {
+      title: "Smart Waste Segregator",
+      intro:
+        "An IoT-based smart waste management system for automated dry and wet waste segregation.",
+      more: `Smart Waste Segregator was developed during a 36-hour hackathon as a team project focused on promoting sustainable waste management. The system uses Arduino, sensors, motors, and automation techniques to identify and separate dry and wet waste.
+
+Additional planned features included automated zipping mechanisms, rinsing systems, and mobile application integration. The project also explored machine learning-based waste classification techniques, providing valuable exposure to IoT, embedded systems, and intelligent automation.`,
+      image: wasteImg,
+    }
+
+  ];
 
   return (
     <div className="projects-page">
       <h2 className="projects-title">Projects</h2>
 
+      <p className="projects-subtitle">
+        A collection of AI, Machine Learning, Full Stack, and software
+        engineering projects that reflect my passion for building practical,
+        intelligent, and scalable solutions.
+      </p>
+
       <div className="projects-container">
         {projects.map((project, index) => (
           <div className="project-card" key={index}>
             <h3>{project.title}</h3>
+
             <p>{project.intro}</p>
 
             {expandedCard === index && (
-            <div className="project-expanded">
+              <div className="project-expanded">
                 <img
-                src={project.image}
-                alt={project.title}
-                className="project-image"
+                  src={project.image}
+                  alt={project.title}
+                  className="project-image"
                 />
+
                 <p className="project-more">{project.more}</p>
-            </div>
+
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="github-link"
+                  >
+                    View GitHub Repository →
+                  </a>
+                )}
+              </div>
             )}
 
             <button

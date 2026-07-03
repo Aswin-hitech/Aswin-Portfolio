@@ -6,6 +6,7 @@ import Projects from "./Components/Projects";
 import Skills from "./Components/Skills";
 import Contact from "./Components/Contact";
 import Platforms from "./Components/Platforms";
+import Achievements from "./Components/Achievements";
 import "./Components/styles.css";
 import Footer from './Components/Footer'
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/achievements" element={<Achievements />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/contact" element={<Contact />} />
         <Route path = "/platforms" element = {<Platforms/>} />

@@ -1,58 +1,92 @@
-function About(){
+function About() {
 
-    return(
-        <div className = "page">
+    return (
+        <div className="page">
             <h2>About Me</h2>
+
             <p>
-                Hi This is Aswin , a second -year Artificial Intelligence and Machine Learning student 
-                with a strong interest in building practical, technology-driven solutions. I am currently
-                developing my skills in programming, web development, and core AI concepts through 
-                hands-on projects and structured learning platforms. I enjoy exploring how modern technologies
-                like Machine Learning , Large Language Models (LLM) and Full-Stack Development can be applied to solve real-world problems.
-                I am a motivated learner, continuously improving my technical and communication skills, and 
-                I aspire to grow into a competent AI/ML professional as well as a great Communicator.
+                Hi, I'm <b>Aswin</b>, a third-year B.Tech student specializing in
+                Artificial Intelligence and Machine Learning at Kalaignar Karunanidhi
+                Institute of Technology, Coimbatore. I am passionate about building
+                intelligent, real-world applications that combine Artificial
+                Intelligence, Machine Learning, Large Language Models (LLMs), and
+                Full-Stack Development.
             </p>
+
+            <p>
+                Over the past few years, I have worked on multiple AI-powered
+                applications, including RAG-based systems, medical claim automation,
+                smart parking solutions, railway complaint analysis, and personal
+                productivity platforms. My interests include Generative AI, Computer
+                Vision, Natural Language Processing, Agentic AI, and scalable backend
+                development.
+            </p>
+
+            <p>
+                I enjoy transforming ideas into practical solutions through research,
+                software engineering, and continuous learning. I actively participate
+                in hackathons, technical workshops, internships, and self-driven
+                projects to strengthen my problem-solving, communication, and software
+                development skills. My long-term goal is to become an AI Engineer who
+                develops impactful, production-ready AI solutions for real-world
+                challenges.
+            </p>
+
             <h2>Education</h2>
-            <h3>Schooling</h3>
+
+            <h3>School Education</h3>
+
             <p>
-                I Completed my 12th standard and 10th standard at Shaanthi Matriculation Higher Secondary School Pollachi.
-                With a strong academic foundation, where I developed interest in mathematics, science, and problem-solving skills. 
-                I completed my 12th standard in the Biology–Mathematics stream, which helped me build strong academic fundamentals.
-                My school education helped me build discipline, logical thinking, and effective communication abilities
-            <h3>Marks Obtained</h3>
-                <table class = "marks">
-                    <tr>
-                        <td>Standard</td>
-                        <td>Year</td>
-                        <td>Marks Obtained</td>
-                        <td>School</td>
-                    </tr>
-                    <tr>
-                        <td> HSC +2 </td>
-                        <td>2023-24</td>
-                        <td>85.6% - 512/600</td>
-                        <td>Shaanthi Matriculation Higher Secondary School Pollachi</td>
-                    </tr>
-                    <tr>
-                        <td> SSLC </td>
-                        <td>2021-22</td>
-                        <td>92.6% - 461/500</td>
-                        <td>Shaanthi Matriculation Higher Secondary School Pollachi</td>
-                    </tr>
-                </table>
-            <h3>College</h3>
-                <p>
-                    Currently in the second year of undergraduate studies in Artificial Intelligence and Machine Learning. 
-                    Core concepts in programming and AI are being strengthened through academic coursework and practical exposure.
-                     Active participation in projects and presentations enhances problem-solving and technical skills.
-                    This stage of education contributes significantly to professional and career development.
-                    <br></br>
-                    <div id="cgpa">
-                    <b>CGPA : 9.20</b>
-                    </div>
-                </p>
+                I completed both my SSLC and Higher Secondary education at Shaanthi
+                Matriculation Higher Secondary School, Pollachi. My academic journey
+                began with a strong foundation in Mathematics, Science, and logical
+                reasoning through the Biology-Mathematics stream, which played a key
+                role in developing my analytical thinking and problem-solving skills.
             </p>
+
+            <h3>Academic Performance</h3>
+
+            <table className="marks">
+                <tr>
+                    <th>Standard</th>
+                    <th>Academic Year</th>
+                    <th>Score</th>
+                    <th>Institution</th>
+                </tr>
+
+                <tr>
+                    <td>Higher Secondary (HSC)</td>
+                    <td>2023–2024</td>
+                    <td>85.6% (512/600)</td>
+                    <td>Shaanthi Matriculation Higher Secondary School, Pollachi</td>
+                </tr>
+
+                <tr>
+                    <td>SSLC</td>
+                    <td>2021–2022</td>
+                    <td>92.2% (461/500)</td>
+                    <td>Shaanthi Matriculation Higher Secondary School, Pollachi</td>
+                </tr>
+            </table>
+
+            <h3>Undergraduate Education</h3>
+
+            <p>
+                I am currently pursuing my Bachelor of Technology (B.Tech) in
+                Artificial Intelligence and Machine Learning at Kalaignar Karunanidhi
+                Institute of Technology, Coimbatore. Throughout my academic journey, I
+                have gained hands-on experience in AI, Machine Learning, Deep
+                Learning, Data Analytics, Computer Vision, NLP, Full-Stack
+                Development, SQL, and modern AI frameworks by combining classroom
+                learning with practical projects and internships.
+            </p>
+
+            <div id="cgpa">
+                <b>Current CGPA: 9.33 / 10</b>
+            </div>
+
         </div>
-    )
+    );
 }
+
 export default About;

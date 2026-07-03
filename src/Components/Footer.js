@@ -6,11 +6,11 @@ function Footer() {
       </p>
 
       <p className="footer-sub">
-        All Rights Reserved 2025–2026
+        All Rights Reserved 2026-2027
       </p>
 
       <p className="footer-sub">
-        Last Updated: December 2025
+        Last Updated: July 2026
       </p>
     </footer>
   );
