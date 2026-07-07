@@ -941,13 +941,13 @@ button:hover {
   font-weight: 600;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: var(--text-on-dark);
+  color : black;
 }
 
 .marks td {
   padding: 15px 20px;
   font-size: 16px;
-  color: var(--text-secondary);
+  color : black;
   border-bottom: 1px solid rgba(13, 21, 38, 0.08);
   transition: color var(--dur-fast) var(--ease-smooth);
 }
@@ -969,7 +969,36 @@ button:hover {
   .marks { font-size: 14px; }
   .marks th, .marks td { padding: 12px 14px; }
 }
+.projects-subtitle {
+    max-width: 900px;
+    margin: 25px auto 45px;
+    padding: 22px 30px;
 
+    background: linear-gradient(135deg, #ffffff, #f8fbff);
+    border: 1px solid rgba(0, 123, 255, 0.15);
+    border-left: 6px solid #0d6efd;
+    border-radius: 18px;
+
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: 500;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    transition: all 0.35s ease;
+    cursor: default;
+}
+
+.projects-subtitle:hover {
+    transform: translateY(-6px) scale(1.02);
+
+    box-shadow: 0 18px 40px rgba(13, 110, 253, 0.18);
+
+    border-left: 6px solid #4f46e5;
+    background: linear-gradient(135deg, #f8fbff, #eef6ff);
+}
 /* ----------------------------------------------------------------------------
    12. CONTACT PAGE
 ---------------------------------------------------------------------------- */

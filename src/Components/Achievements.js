@@ -12,7 +12,6 @@ function Achievements() {
       description:
         "Delivered an international technical webinar organized by Universiti Teknologi MARA (UiTM), Malaysia. The session focused on emerging Artificial Intelligence technologies, practical applications, and career opportunities in AI, providing participants with industry-oriented insights and interactive discussions.",
       image: webinarImg,
-      image:webinarImg1
     },
     {
       title: "Buddy Bytes Mentor Session",
@@ -20,7 +19,6 @@ function Achievements() {
       description:
         "Conducted a Buddy Bytes technical session for junior students, introducing fundamental programming concepts, software development practices, and effective problem-solving approaches. The session encouraged collaborative learning and helped juniors strengthen their technical foundations.",
       image: buddyBytesImg,
-      image: buddyBytesImg1
     },
     {
       title: "Research Paper Presentation - ICON REACT 4K",
@@ -58,8 +56,8 @@ function Achievements() {
       <h2 style={{ marginTop: "60px" }}>Gallery</h2>
 
       <div className="achievement-gallery">
-        <img src={webinarImg} alt="Webinar" />
-        <img src={buddyBytesImg} alt="Buddy Bytes" />
+        <img src={webinarImg1} alt="Webinar" />
+        <img src={buddyBytesImg1} alt="Buddy Bytes" />
         <img src={conferenceImg} alt="Conference" />
       </div>
     </div>
