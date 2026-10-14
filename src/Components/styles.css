@@ -1475,18 +1475,102 @@ button:hover {
 }
 
 /* ============================================================================
-   19. HOMEPAGE REFERENCE VISUAL MOTION & BACKGROUND NETWORK
+   19. HOMEPAGE REFERENCE VISUAL MOTION & CINEMATIC BACKGROUND NETWORK
    ----------------------------------------------------------------------------
    Recreation of reference motion patterns (https://portfolio-nancy-s.vercel.app/):
-   1. Directional Bluish-White to Deep Black Gradient with Technical Grid Network
-   2. Choreographed text entrance: Heading -> Subheading -> Staggered Paragraphs
-   3. Polished scroll-triggered reveals with expo.out cubic-bezier easing
-   4. Subtle pointer-driven 3D depth and refined hover transitions
+   1. Dedicated Cinematic Intro: ASWIN morphs into PORTFOLIO with letter-by-letter typing
+   2. Uniform Technical Grid Network with natural cosmic blue-white to midnight gradient
+   3. Choreographed video-like entrance sequence with 3D focus pull & expanding accent rule
+   4. Polished scroll-triggered reveals with expo.out cubic-bezier easing
+   5. Subtle pointer-driven 3D depth and refined hover transitions
    ============================================================================ */
+
+/* ── 0. DEDICATED CINEMATIC INTRO COVER PAGE (MATCHING REFERENCE) ── */
+body.intro-active {
+  overflow: hidden !important;
+}
+
+#intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+#intro-overlay.finished {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+.intro-massive-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.intro-massive-name {
+  font-family: Impact, "Arial Black", "Sora", sans-serif;
+  font-size: clamp(3.8rem, 16vw, 19vw);
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #d8d8d8 35%, #555555 70%, #000000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0px 15px 35px rgba(255, 255, 255, 0.18));
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 1.1s ease-out, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.intro-massive-name.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.intro-skip-hint {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  opacity: 0;
+  animation: fadeIn 1.2s ease 1.6s forwards;
+  transition: color 0.3s ease;
+}
+
+#intro-overlay:hover .intro-skip-hint {
+  color: rgba(255, 255, 255, 0.85);
+}
 
 /* Seamless black base on body when on homepage */
 body.on-home-page {
-  background: #000000 !important;
+  background: #02050c !important;
 }
 
 /* Remove default floating orb on homepage so it doesn't conflict with directional background */
@@ -1494,7 +1578,7 @@ body.on-home-page {
   display: none !important;
 }
 
-/* ── 1. BACKGROUND: BLUISH-WHITE TO BLACK GRID NETWORK ── */
+/* ── 1. BACKGROUND: SEAMLESS DIRECTIONAL BLUE-WHITE TO MIDNIGHT BLACK GRID NETWORK ── */
 .home-bg-network {
   position: fixed;
   inset: 0;
@@ -1503,112 +1587,197 @@ body.on-home-page {
   z-index: -2;
   pointer-events: none;
   overflow: hidden;
+  background-color: #03060d;
 }
 
-/* Directional gradient: soft bluish-white (upper-right) to deep black (lower-left) */
+/* Base directional gradient: deep space black to soft ambient midnight glow */
 .home-bg-gradient {
   position: absolute;
   inset: 0;
   background:
     radial-gradient(
-      ellipse 90% 75% at 92% 6%,
-      rgba(240, 247, 255, 0.96) 0%,
-      rgba(216, 235, 255, 0.82) 20%,
-      rgba(154, 194, 245, 0.48) 42%,
-      rgba(55, 92, 142, 0.22) 64%,
-      rgba(14, 26, 46, 0.10) 80%,
+      ellipse 85% 70% at 88% 10%,
+      rgba(215, 235, 255, 0.36) 0%,
+      rgba(130, 180, 245, 0.20) 28%,
+      rgba(40, 85, 160, 0.10) 52%,
+      rgba(10, 22, 45, 0.04) 75%,
       transparent 100%
     ),
+    radial-gradient(
+      ellipse 65% 55% at 15% 85%,
+      rgba(15, 30, 65, 0.28) 0%,
+      transparent 70%
+    ),
     linear-gradient(
-      225deg,
-      #e6f0ff 0%,
-      #c9dffc 10%,
-      #9abff2 22%,
-      #5b8bc9 36%,
-      #2b5289 50%,
-      #13294b 64%,
-      #071325 76%,
-      #02060e 88%,
-      #000000 100%
+      140deg,
+      #020409 0%,
+      #040813 25%,
+      #071122 50%,
+      #0b1a34 70%,
+      #12274d 85%,
+      #1b3867 95%,
+      #254980 100%
     );
-  background-color: #000000;
 }
 
-/* Subtle ambient movement / gentle light-shifting effect matching reference */
-.home-bg-ambient {
+/* Ambient moving light orbs that drift gently like a video backdrop */
+.home-bg-ambient-orb {
   position: absolute;
-  inset: -15%;
-  background: radial-gradient(
-    ellipse 65% 55% at 86% 16%,
-    rgba(220, 238, 255, 0.35) 0%,
-    rgba(140, 188, 255, 0.12) 42%,
-    transparent 72%
-  );
-  filter: blur(48px);
-  animation: homeAmbientDrift 22s ease-in-out infinite alternate;
+  border-radius: 50%;
+  filter: blur(80px);
   pointer-events: none;
   will-change: transform, opacity;
 }
 
-@keyframes homeAmbientDrift {
+.home-bg-ambient-1 {
+  top: -12%;
+  right: 2%;
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, rgba(190, 225, 255, 0.32) 0%, rgba(95, 155, 245, 0.14) 50%, transparent 70%);
+  animation: ambientOrbDrift 22s ease-in-out infinite alternate;
+}
+
+.home-bg-ambient-2 {
+  bottom: 8%;
+  left: 8%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(50, 100, 180, 0.18) 0%, rgba(20, 45, 90, 0.08) 50%, transparent 70%);
+  animation: ambientOrbDrift2 28s ease-in-out infinite alternate;
+}
+
+@keyframes ambientOrbDrift {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0.75;
+    opacity: 0.7;
   }
   50% {
-    transform: translate3d(-3%, 3%, 0) scale(1.05);
+    transform: translate3d(-50px, 35px, 0) scale(1.1);
     opacity: 0.95;
   }
   100% {
-    transform: translate3d(2%, -2%, 0) scale(1.02);
-    opacity: 0.8;
+    transform: translate3d(35px, -25px, 0) scale(1.02);
+    opacity: 0.75;
   }
 }
 
-/* Subtle fine-lined grid network across background (thin, minimal, futuristic) */
+@keyframes ambientOrbDrift2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate3d(45px, -35px, 0) scale(1.15);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(-25px, 25px, 0) scale(0.95);
+    opacity: 0.65;
+  }
+}
+
+/* Edge-to-edge uniform fine-lined technical grid (visible everywhere) */
 .home-bg-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 52px 52px;
+    linear-gradient(to right, rgba(160, 205, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 205, 255, 0.11) 1px, transparent 1px);
+  background-size: 50px 50px;
   pointer-events: none;
 }
 
-/* Dual-contrast grid overlay: fine-lined dark lines in upper-right for visibility against light zone */
-.home-bg-grid-overlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(16, 28, 52, 0.09) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(16, 28, 52, 0.09) 1px, transparent 1px);
-  background-size: 52px 52px;
-  mask-image: radial-gradient(ellipse 85% 75% at 90% 10%, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 90% 10%, black 20%, transparent 80%);
-  pointer-events: none;
-}
-
-/* Minimal futuristic dot coordinates at grid intersections */
+/* Intersection dot coordinates across the entire grid */
 .home-bg-grid-dots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
-  background-size: 52px 52px;
-  background-position: -0.5px -0.5px;
+  background-image: radial-gradient(circle, rgba(185, 220, 255, 0.24) 1.2px, transparent 1.2px);
+  background-size: 50px 50px;
+  background-position: -0.6px -0.6px;
   pointer-events: none;
 }
 
-/* ── 2. HOMEPAGE TEXT ANIMATIONS ── */
+/* Gentle living light sweep across the grid — feels like a video transition */
+.home-bg-light-sweep {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(180, 215, 255, 0.03) 40%,
+    rgba(220, 240, 255, 0.07) 50%,
+    rgba(180, 215, 255, 0.03) 60%,
+    transparent 100%
+  );
+  background-size: 250% 100%;
+  animation: gridLightSweep 16s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gridLightSweep {
+  0% { background-position: -150% 0; }
+  50% { background-position: 150% 0; }
+  100% { background-position: -150% 0; }
+}
+
+/* ── 2. HOMEPAGE CHOREOGRAPHED TEXT & HERO ANIMATIONS ── */
 
 /* Reference expo.out easing: cubic-bezier(0.16, 1, 0.3, 1) */
+
+/* Photo container with soft backlight aura */
+.hero-photo-container {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.hero-photo-glow {
+  position: absolute;
+  inset: -12px;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(circle, rgba(79, 147, 255, 0.32) 0%, transparent 70%);
+  filter: blur(18px);
+  z-index: -1;
+  pointer-events: none;
+  animation: photoGlowPulse 5s ease-in-out infinite;
+}
+
+@keyframes photoGlowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(0.96); }
+  50%      { opacity: 1; transform: scale(1.04); }
+}
+
+/* Profile image entrance: glides up in 3D perspective with film focus pull */
+.home-page #profile-pic.hero-profile-reveal {
+  opacity: 0;
+  transform: perspective(1200px) rotateX(16deg) translateY(42px) scale(0.92);
+  filter: blur(10px);
+  animation: heroPicEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards,
+             floatY 6s ease-in-out 1.6s infinite;
+  will-change: transform, opacity, filter;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 30px rgba(47, 107, 255, 0.25);
+}
+
+@keyframes heroPicEntrance {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(16deg) translateY(42px) scale(0.92);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
 
 /* Main heading entrance: animates first with smooth upward reveal and fade */
 .home-page .home .intro h1.hero-heading-reveal {
   opacity: 0;
   transform: translateY(34px);
-  animation: heroHeadingEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards,
-             shimmerText 7s linear 1.25s infinite;
+  animation: heroHeadingEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards,
+             shimmerText 7s linear 1.3s infinite;
   will-change: transform, opacity;
 }
 
@@ -1628,8 +1797,34 @@ body.on-home-page {
   display: inline-block;
   opacity: 0;
   transform: translateY(22px);
-  animation: heroSubEntrance 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.38s forwards;
+  animation: heroSubEntrance 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
   will-change: transform, opacity;
+}
+
+/* Expanding horizontal accent rule (directly inspired by reference .hero-rule) */
+.home-page .hero-rule {
+  display: block;
+  height: 2px;
+  width: 100%;
+  max-width: 320px;
+  margin: 12px 0 18px;
+  background: linear-gradient(90deg, var(--accent-500), var(--accent-300), transparent);
+  border-radius: var(--radius-pill);
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: heroRuleExpand 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.52s forwards;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+@keyframes heroRuleExpand {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 @keyframes heroSubEntrance {
@@ -1651,40 +1846,79 @@ body.on-home-page {
 }
 
 .home-page .home .intro p.hero-p-1 {
-  animation: heroSubEntrance 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.54s forwards;
+  animation: heroSubEntrance 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.62s forwards;
 }
 
 .home-page .home .intro p.hero-p-2 {
-  animation: heroSubEntrance 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.70s forwards;
+  animation: heroSubEntrance 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.78s forwards;
 }
 
 .home-page .home .intro p.hero-p-3 {
-  animation: heroSubEntrance 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.86s forwards;
+  animation: heroSubEntrance 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.94s forwards;
 }
 
-/* Profile image entrance: glides up in 3D perspective before idle floating */
-.home-page #profile-pic.hero-profile-reveal {
-  opacity: 0;
-  transform: translateY(36px) scale(0.96);
-  animation: heroPicEntrance 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards,
-             floatY 6s ease-in-out 1.35s infinite;
-  will-change: transform, opacity;
+/* ── 3. CARD REFINEMENT: FROSTED GLASS DEPTH (COHESIVE WITH BACKGROUND) ── */
+
+.home-page .home {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 247, 255, 0.92) 100%);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  border: 1px solid rgba(180, 210, 255, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3),
+              0 0 35px rgba(47, 107, 255, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  will-change: transform, box-shadow;
 }
 
-@keyframes heroPicEntrance {
-  0% {
-    opacity: 0;
-    transform: translateY(36px) scale(0.96);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.home-page .home:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35),
+              0 0 45px rgba(47, 107, 255, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-color: rgba(79, 147, 255, 0.55);
 }
 
-/* ── 3. SCROLL-TRIGGERED REVEAL & TRANSITIONS ── */
+.home-page .extra-card {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 255, 0.92) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(180, 210, 255, 0.32);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22),
+              0 0 24px rgba(47, 107, 255, 0.06);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  will-change: transform, box-shadow;
+}
 
-/* Standard smooth reveal-up */
+.home-page .extra-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28),
+              0 0 32px rgba(47, 107, 255, 0.18);
+  border-color: rgba(79, 147, 255, 0.5);
+}
+
+.home-page .btn {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-page .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px var(--accent-glow);
+}
+
+.home-page #profile-pic:hover {
+  transform: scale(1.025) translateY(-4px);
+  box-shadow: 0 28px 65px rgba(47, 107, 255, 0.4);
+}
+
+/* ── 4. SCROLL-TRIGGERED REVEAL & TRANSITIONS ── */
+
 .home-page .reveal-up {
   opacity: 0;
   transform: translateY(32px);
@@ -1751,58 +1985,14 @@ body.on-home-page {
   transform: translateY(0);
 }
 
-/* ── 4. POLISHED HOVER TRANSITIONS (CONSISTENT EASING, NO EXAGGERATED MOTION) ── */
-
-.home-page .home {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s ease;
-  will-change: transform, box-shadow;
-}
-
-.home-page .home:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-inset-deep), 0 20px 48px rgba(15, 30, 60, 0.16), 0 0 24px rgba(47, 107, 255, 0.12);
-  border-color: rgba(47, 107, 255, 0.32);
-}
-
-.home-page .extra-card {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s ease;
-  will-change: transform, box-shadow;
-}
-
-.home-page .extra-card:hover {
-  transform: translateY(-5px) scale(1.012);
-  box-shadow: var(--shadow-inset-soft), 0 18px 36px rgba(15, 30, 60, 0.14), 0 0 20px rgba(47, 107, 255, 0.14);
-  border-color: rgba(47, 107, 255, 0.35);
-}
-
-.home-page .btn {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.home-page .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px var(--accent-glow);
-}
-
-.home-page #profile-pic {
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.home-page #profile-pic:hover {
-  transform: scale(1.025) translateY(-4px);
-  box-shadow: var(--shadow-inset-soft), 0 24px 50px rgba(47, 107, 255, 0.35);
-}
-
 /* ── 5. ACCESSIBILITY / PREFERS-REDUCED-MOTION ── */
 @media (prefers-reduced-motion: reduce) {
-  .home-bg-ambient,
+  #intro-overlay {
+    display: none !important;
+  }
+  .home-bg-ambient-orb,
+  .home-bg-light-sweep,
+  .home-page .hero-rule,
   .home-page .home .intro h1.hero-heading-reveal,
   .home-page .home .intro b.hero-role-reveal,
   .home-page .home .intro p.hero-p-reveal,
@@ -1815,5 +2005,6 @@ body.on-home-page {
     transition: none !important;
     transform: none !important;
     opacity: 1 !important;
+    filter: none !important;
   }
 }

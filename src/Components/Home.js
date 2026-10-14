@@ -1,16 +1,72 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import profile from "../assets/aswin.jpeg";
 import resume from "../assets/Aswin_Resume.pdf";
 
 function Home() {
+  const [introText, setIntroText] = useState("ASWIN");
+  const [introAnimate, setIntroAnimate] = useState(false);
+  const [introFinished, setIntroFinished] = useState(false);
+  const [introUnmounted, setIntroUnmounted] = useState(false);
+
   const handleResume = () => {
     window.open(resume, "_blank");
   };
 
+  const skipIntro = () => {
+    setIntroFinished(true);
+    document.body.classList.remove("intro-active");
+    setTimeout(() => {
+      setIntroUnmounted(true);
+    }, 1200);
+  };
+
+  // Dedicated Cinematic Intro: ASWIN morphs into PORTFOLIO (matching reference)
   useEffect(() => {
+    document.body.classList.add("intro-active");
     document.body.classList.add("on-home-page");
+
+    // 1. Massive typography scales & shines in
+    const startTimer = setTimeout(() => {
+      setIntroAnimate(true);
+    }, 150);
+
+    // 2. Morph ASWIN into PORTFOLIO letter-by-letter
+    const morphTimer = setTimeout(() => {
+      const targetWord = "PORTFOLIO";
+      const startWord = "ASWIN";
+      let step = 0;
+
+      const typeInterval = setInterval(() => {
+        step++;
+        if (step <= targetWord.length) {
+          const morphed =
+            targetWord.substring(0, step) +
+            (startWord.substring(step) || "");
+          setIntroText(morphed);
+        } else {
+          clearInterval(typeInterval);
+        }
+      }, 115);
+    }, 1200);
+
+    // 3. Dissolve intro overlay into page (video-like transition)
+    const finishTimer = setTimeout(() => {
+      setIntroFinished(true);
+      document.body.classList.remove("intro-active");
+    }, 3200);
+
+    // 4. Safely unmount overlay from DOM
+    const unmountTimer = setTimeout(() => {
+      setIntroUnmounted(true);
+    }, 4500);
+
     return () => {
+      document.body.classList.remove("intro-active");
       document.body.classList.remove("on-home-page");
+      clearTimeout(startTimer);
+      clearTimeout(morphTimer);
+      clearTimeout(finishTimer);
+      clearTimeout(unmountTimer);
     };
   }, []);
 
@@ -68,8 +124,8 @@ function Home() {
         const rect = card.getBoundingClientRect();
         const px = (e.clientX - rect.left) / rect.width - 0.5;
         const py = (e.clientY - rect.top) / rect.height - 0.5;
-        const rotateY = px * 5;
-        const rotateX = -py * 5;
+        const rotateY = px * 5.5;
+        const rotateX = -py * 5.5;
         card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(
           2
         )}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
@@ -98,24 +154,45 @@ function Home() {
   }, []);
 
   return (
-    <div className="page home-page">
-      {/* Background — Bluish White to Black Grid Network */}
+    <div className={`page home-page ${introFinished ? "intro-revealed" : "intro-waiting"}`}>
+      {/* Dedicated Cinematic Intro Cover Page (Nancy Reference) */}
+      {!introUnmounted && (
+        <div
+          id="intro-overlay"
+          className={`intro-overlay ${introFinished ? "finished" : ""}`}
+          onClick={skipIntro}
+          title="Click to skip intro"
+        >
+          <div className="intro-massive-wrap">
+            <h1 className={`intro-massive-name ${introAnimate ? "animate-in" : ""}`}>
+              {introText}
+            </h1>
+            <span className="intro-skip-hint">Click anywhere to skip</span>
+          </div>
+        </div>
+      )}
+
+      {/* Background — Bluish White to Black Uniform Grid Network & Ambient Motion */}
       <div className="home-bg-network" aria-hidden="true">
         <div className="home-bg-gradient" />
-        <div className="home-bg-ambient" />
+        <div className="home-bg-ambient-orb home-bg-ambient-1" />
+        <div className="home-bg-ambient-orb home-bg-ambient-2" />
         <div className="home-bg-grid" />
-        <div className="home-bg-grid-overlay" />
         <div className="home-bg-grid-dots" />
+        <div className="home-bg-light-sweep" />
       </div>
 
       {/* Hero Section */}
       <div className="home hero-section-card">
-        <img
-          id="profile-pic"
-          className="hero-profile-reveal"
-          src={profile}
-          alt="Aswin Profile"
-        />
+        <div className="hero-photo-container">
+          <img
+            id="profile-pic"
+            className="hero-profile-reveal"
+            src={profile}
+            alt="Aswin Profile"
+          />
+          <div className="hero-photo-glow" />
+        </div>
 
         <div className="intro">
           <h1 className="hero-heading-reveal">
@@ -125,8 +202,8 @@ function Home() {
           <b className="hero-role-reveal">
             AI Engineer | Generative AI | Full Stack Developer
           </b>
+          <span className="hero-rule" />
 
-          <br />
           <br />
 
           <p className="hero-p-reveal hero-p-1">
